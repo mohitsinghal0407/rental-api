@@ -8,14 +8,15 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\JsonResponse;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class RentBookTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
-    public function it_rents_a_book_successfully()
+    #[Test]
+    public function it_rents_a_book_successfully(): void
     {
         // Create a user
         $user = User::factory()->create();
@@ -51,8 +52,8 @@ class RentBookTest extends TestCase
         $this->assertEquals(0, $book->fresh()->available_copies);
     }
 
-    /** @test */
-    public function it_returns_validation_error_when_user_id_is_missing()
+    #[Test]
+    public function it_returns_validation_error_when_user_id_is_missing(): void
     {
         // Create a book
         $book = Book::factory()->create();
@@ -73,8 +74,8 @@ class RentBookTest extends TestCase
             ]);
     }
 
-    /** @test */
-    public function it_returns_validation_error_when_book_id_is_missing()
+    #[Test]
+    public function it_returns_validation_error_when_book_id_is_missing(): void
     {
         // Create a user
         $user = User::factory()->create();
@@ -95,8 +96,8 @@ class RentBookTest extends TestCase
             ]);
     }
 
-    /** @test */
-    public function it_returns_error_when_no_copies_are_available()
+    #[Test]
+    public function it_returns_error_when_no_copies_are_available(): void
     {
         // Create a user
         $user = User::factory()->create();
@@ -114,7 +115,7 @@ class RentBookTest extends TestCase
         $response->assertStatus(JsonResponse::HTTP_BAD_REQUEST)
             ->assertJson([
                 'status' => false,
-                'message' => 'No copies of this book are available for rent',
+                'message' => 'No copies of this book are available for rent.',
             ]);
     }
 }

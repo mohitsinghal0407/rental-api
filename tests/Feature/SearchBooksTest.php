@@ -5,14 +5,15 @@ namespace Tests\Feature;
 use App\Models\Book;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\JsonResponse;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class SearchBooksTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
-    public function it_returns_books_based_on_title_search()
+    #[Test]
+    public function it_returns_books_based_on_title_search(): void
     {
         // Create some books
         Book::factory()->create(['title' => 'The Great Gatsby', 'genre' => 'Fiction']);
@@ -37,8 +38,8 @@ class SearchBooksTest extends TestCase
             ]);
     }
 
-    /** @test */
-    public function it_returns_books_based_on_genre_search()
+    #[Test]
+    public function it_returns_books_based_on_genre_search(): void
     {
         // Create some books
         Book::factory()->create(['title' => 'The Great Gatsby', 'genre' => 'Fiction']);
@@ -67,8 +68,8 @@ class SearchBooksTest extends TestCase
             ]);
     }
 
-    /** @test */
-    public function it_returns_books_based_on_title_and_genre_search()
+    #[Test]
+    public function it_returns_books_based_on_title_and_genre_search(): void
     {
         // Create some books
         Book::factory()->create(['title' => 'The Great Gatsby', 'genre' => 'Fiction']);
@@ -94,8 +95,8 @@ class SearchBooksTest extends TestCase
             ]);
     }
 
-    /** @test */
-    public function it_returns_no_books_when_no_matches_found()
+    #[Test]
+    public function it_returns_no_books_when_no_matches_found(): void
     {
         // Create some books
         Book::factory()->create(['title' => 'The Great Gatsby', 'genre' => 'Fiction']);
@@ -114,8 +115,8 @@ class SearchBooksTest extends TestCase
             ]);
     }
 
-    /** @test */
-    public function it_returns_validation_error_when_invalid_params_provided()
+    #[Test]
+    public function it_returns_validation_error_when_invalid_params_provided(): void
     {
         // Send a request with invalid title parameter
         $response = $this->json('GET', route('search.books'), [
@@ -124,11 +125,11 @@ class SearchBooksTest extends TestCase
 
         // Assert the response status and error structure
         $response->assertStatus(JsonResponse::HTTP_UNPROCESSABLE_ENTITY)
-            ->assertJson([
-                'error' => 'validation',
-                'message' => [
-                    'title' => ['The title field must not be greater than 255 characters.'],
-                ],
-            ]);
+        ->assertJson([
+            'error' => 'validation',
+            'message' => [
+                'title' => ['The title field must not be greater than 255 characters.'],
+            ],
+        ]);
     }
 }

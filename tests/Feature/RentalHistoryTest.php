@@ -6,13 +6,14 @@ use App\Models\User;
 use App\Models\Rental;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\JsonResponse;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class RentalHistoryTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[Test]
     public function it_returns_rental_history_for_a_valid_user(): void
     {
         // Create a user
@@ -37,7 +38,7 @@ class RentalHistoryTest extends TestCase
             ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_returns_validation_error_when_user_id_is_missing(): void
     {
         // Send a GET request without user_id
@@ -54,7 +55,7 @@ class RentalHistoryTest extends TestCase
             ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_returns_validation_error_when_user_id_is_invalid(): void
     {
         // Send a GET request with a non-existent user_id
@@ -64,12 +65,12 @@ class RentalHistoryTest extends TestCase
 
         // Assert the response status and error structure
         $response->assertStatus(JsonResponse::HTTP_UNPROCESSABLE_ENTITY)
-            ->assertJson([
-                'status' => false,
-                'error_type' => 'validation',
-                'message' => [
-                    'user_id' => ['The selected user id is invalid.'],
-                ],
-            ]);
+        ->assertJson([
+            'status' => false,
+            'error_type' => 'validation',
+            'message' => [
+                'user_id' => ['The selected user id is invalid.'],
+            ],
+        ]);
     }
 }

@@ -6,14 +6,15 @@ use App\Models\Book;
 use App\Models\Rental;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\JsonResponse;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class GetStatsTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
-    public function it_returns_no_rental_data_if_no_rentals_exist()
+    #[Test]
+    public function it_returns_no_rental_data_if_no_rentals_exist(): void
     {
         // Send a request to get stats when there are no rentals
         $response = $this->json('GET', route('get.stats'));

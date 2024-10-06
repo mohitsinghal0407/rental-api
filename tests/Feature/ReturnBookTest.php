@@ -8,14 +8,15 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\JsonResponse;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class ReturnBookTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
-    public function it_returns_book_successfully()
+    #[Test]
+    public function it_returns_book_successfully(): void
     {
         // Create a user
         $user = User::factory()->create();
@@ -53,8 +54,8 @@ class ReturnBookTest extends TestCase
         $this->assertEquals(2, $book->fresh()->available_copies);
     }
 
-    /** @test */
-    public function it_returns_validation_error_when_user_id_is_missing()
+    #[Test]
+    public function it_returns_validation_error_when_user_id_is_missing(): void
     {
         // Create a rental record
         $rental = Rental::factory()->create();
@@ -75,8 +76,8 @@ class ReturnBookTest extends TestCase
             ]);
     }
 
-    /** @test */
-    public function it_returns_validation_error_when_rental_id_is_missing()
+    #[Test]
+    public function it_returns_validation_error_when_rental_id_is_missing(): void
     {
         // Create a user
         $user = User::factory()->create();
@@ -97,8 +98,8 @@ class ReturnBookTest extends TestCase
             ]);
     }
 
-    /** @test */
-    public function it_returns_error_when_book_is_already_returned()
+    #[Test]
+    public function it_returns_error_when_book_is_already_returned(): void
     {
         // Create a user
         $user = User::factory()->create();
