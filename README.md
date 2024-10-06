@@ -56,3 +56,7 @@ Follow these steps to set up the project:
 ## Run Test Cases
    ```bash 
    php artisan test
+
+## Command to make rentals overdue & send notifications
+   ```bash 
+   php artisan rentals:mark-overdue
