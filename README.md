@@ -47,6 +47,9 @@ Follow these steps to set up the project:
 8. **Serve the application**:
    ```bash 
    php artisan serve
+9. **Run the test cases**:
+   ```bash 
+   php artisan test
 
 ## Workflow
 
@@ -56,7 +59,3 @@ Follow these steps to set up the project:
 ## **Command to make rentals overdue & send notifications**:
    ```bash 
    php artisan rentals:mark-overdue
-
-## **Run Test Cases**:
-   ```bash 
-   php artisan test
