@@ -26,8 +26,10 @@ Follow these steps to set up the project:
 1. **Clone the repository**:
    ```bash
    git clone https://{username}:{token}@github.com/mohitsinghal0407/rental-api.git
-   
+2. **Navigate to the project directory**:
+   ```bash  
    cd rental-api
+   
    composer install
    cp .env.example .env
    php artisan key:generate
