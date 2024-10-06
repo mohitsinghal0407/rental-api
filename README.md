@@ -35,8 +35,16 @@ Follow these steps to set up the project:
 4. **Install Dependencies**:
    ```bash  
    composer install
+5. **Generate the application key**:
+   ```bash 
    php artisan key:generate
+6. **Migrate the database**:
+   ```bash 
    php artisan migrate:fresh
+7. **Seed the database**:
+   ```bash 
    php artisan db:seed
+8. **Serve the application**:
+   ```bash 
    php artisan serve
     
