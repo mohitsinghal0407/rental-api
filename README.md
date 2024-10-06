@@ -54,9 +54,5 @@ Follow these steps to set up the project:
 - run the api's one by one as we need it, by doing this we have some rentals data to test the api's
 
 ## Run Test Cases
-    ```bash 
-    php artisan test
-
-## Command to make rentals overdue and send notification
-    ```bash 
-    php artisan rentals:mark-overdue
+   ```bash 
+   php artisan test
