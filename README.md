@@ -29,9 +29,12 @@ Follow these steps to set up the project:
 2. **Navigate to the project directory**:
    ```bash  
    cd rental-api
-   
-   composer install
+3. **Setup the environment**:
+   ```bash  
    cp .env.example .env
+4. **Install Dependencies**:
+   ```bash  
+   composer install
    php artisan key:generate
    php artisan migrate:fresh
    php artisan db:seed
