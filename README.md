@@ -53,10 +53,10 @@ Follow these steps to set up the project:
 - Import the postman collection i.e. https://github.com/mohitsinghal0407/rental-api/blob/main/Books%20Rental%20API.postman_collection.json
 - run the api's one by one as we need it, by doing this we have some rentals data to test the api's
 
-8. **Command to make rentals overdue & send notifications**:
+## **Command to make rentals overdue & send notifications**:
    ```bash 
    php artisan rentals:mark-overdue
-   
-## Run Test Cases
+
+## **Run Test Cases**:
    ```bash 
    php artisan test
