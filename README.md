@@ -56,6 +56,7 @@ Follow these steps to set up the project:
 - Import the postman collection i.e. https://github.com/mohitsinghal0407/rental-api/blob/main/Books%20Rental%20API.postman_collection.json
 - run the api's one by one as we need it, by doing this we have some rentals data to test the api's
 - By manually or via tinker change the overdue date to see the command effect - it will make overdue true and send a email if it comes in the criteria.
+- For email notification, please update the .env file and for your information, I've used mailtrap.io at local to test the email notification.
 
 ## **Command to make rentals overdue & send notifications**:
    ```bash 
