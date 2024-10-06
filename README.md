@@ -54,11 +54,9 @@ Follow these steps to set up the project:
 - run the api's one by one as we need it, by doing this we have some rentals data to test the api's
 
 ## Run Test Cases
-    AT the time of run test cases, please take care of existing data in the tables, I have used refreshdatabase in the test cases to run the test smoothly.
     ```bash 
-       php artisan test
+    php artisan test
 
 ## Command to make rentals overdue and send notification
-    It will mark rentals overdue if any rental overdue date is less than today date and send the notification to the users.
     ```bash 
-       php artisan rentals:mark-overdue
+    php artisan rentals:mark-overdue
